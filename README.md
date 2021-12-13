@@ -1,0 +1,2 @@
+# Auction_solidity
+一个关于竞标拍卖的solidity程序
