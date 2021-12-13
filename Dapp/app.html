@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="app.css" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>区块链学院 Dapp</title>
+</head>
+
+<body>
+    <div class="top">
+        <h2>江西软件职业技术大学 @竞标拍卖</h2>
+        <div>
+            <button class="enableEthereumButton">连接你的账户</button>
+            <br/>
+            <div>当前钱包操作账户为: <div class="showAccount"></div></div>
+        </div>
+    </div>
+    <hr/>
+    <div style="width: 300px;">
+        <h3 class="add">添加商品:</h3> 
+        <br/>
+        <div class="top_form">
+                <input type="text" name="姓名" id="name"  placeholder="名称:"  > <br/>
+                <input type="text" name="类别" id="category" placeholder="类别" /> <br/>
+                <input type="text" name="年龄" id="price" placeholder="价格" > <br/>
+                <button class=" btn sure_add">确认</button>
+
+        </div>
+    </div>
+    <br/>
+    <div class="setProductstart_">
+        <h3 class="add">设置商品开始:</h3>
+        <br/>
+        <div style="margin-left: 111px;">
+            <input type="text" name="商品id"  onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" id="setProductStartid" placeholder="商品id:" >
+            <br/>
+        <input type="text" name="拍卖持续时间" id="setProductStarttimeLimit" placeholder="拍卖持续时间:">
+        <br/>
+        <button class="btn setProductStartbut">确认</button>
+        
+        </div>        
+    </div>
+      
+    <br>
+    <div class="getproductatatus">
+        <h3 class="add">查询指定商品状态:</h3>
+        <br/>
+        <div class="searceidstatus" >
+            <div>所查询的商品id:<div id="ShowProductid" ></div>商品是否开始拍卖:<div id="ShowProductStatus" ></div></div>
+            <input type="text"  value="0" name="商品id" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" id="getProductStatusid" placeholder="商品id:" ><br/>
+            <button class=" btn getProductStatus ">确认</button> 
+            </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class="ShowProduct1">
+        <h3 class="add">显示商品信息:</h3>
+        <br/>
+        <input value="0" type="text" name="商品id" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" id="getproductinfoid" placeholder="商品id:"  >
+        <br/>
+        <span>id:  </span><div id="getproductinfoitemid"></div>
+        <span> 名称:</span><div id="getproductinfoitemname"></div>
+        <span> 类别:</span><div id="getproductinfoitemcategory"></div>
+        <div> <span>起拍价:</span> &nbsp<div style="display:inline" id="getproductinfoitemstartPrice"></div><span >&nbsp    WEI</span>
+        <br/>
+        <span> 拥有者地址:</span><div id="getproductinfoitemower"></div>
+        <span>是否开始拍卖:</span> <div id="getproductinfoitemstatus"></div>
+        </div>
+        <button class=" btn getproductinfo">确认</button>
+    </div>
+
+    <div class="bid_css">
+        <h3 class="add">出价</h3>
+        <br/>
+        <input type="text" name="商品id" id="to_bidid" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" placeholder="商品id:"  >
+        <br/>
+        <input type="text" name="bid" id="to_bidvalue" placeholder="出价:"  >
+        <br/>
+        <button class=" btn to_bid">确认</button>
+    </div>
+    <br/>
+    <div class="get_balancecss">
+        <h3 class="add">查询当前账户余额</h3>
+        <br/>
+        <br/>
+        <div>账户地址:<div id="search_current_address"></div></div>
+        <br/>
+        <div>对应地址余额:<div id="search_current_address_balance"></div></div> 
+        <br/>
+        <button class="btn search_current_balance">确认</button>
+    </div>
+    <br/>
+    <div class="search_currentcontract_balancecss">
+        <h3 class="add">查询当前合约账户余额:</h3>
+        <div>当前合约余额:<div id="search_contractcurrent_address_balance"></div></div>
+        <button class=" btn search_currentcontract_balance">确认</button>
+    </div>
+    <div class="getBalance_givecss">
+        <h3 class="add">查询指定账户余额:</h3>
+        <input type="text" name="account1_address" id="giveaddress" placeholder="账户地址:"  >
+        <div>指定账户余额:<div id="Designated_account_balance"></div></div> 
+        <button class=" btn  getBalance_give">确认</button>
+    </div>
+    <br/>
+    <div class="getrest_timecss">
+        <h3 class="add">查看距离结束还有多少时间:</h3>
+        <br/>
+        <input type="text" name="商品id" id="thereainingend_id" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" placeholder="商品id:"  >
+        <div>剩余时长:<div id="the_rest_time"></div></div>
+        <button class=" btn getrest_time ">确认</button>
+    </div>
+    <br/>
+    <div class="addbidtimecss">
+        <h3 class="add">延长拍卖时间</h3>
+        <input type="text" name="商品id" id="addbidtimeid" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" placeholder="商品id:"  >
+        <input type="text" name="延长拍卖时间" id="addbidtime_addTime" placeholder="延长拍卖时间:"  >
+        <button class=" btn addbidtime">确认</button>
+    </div>
+ 
+    <div class="endbidtimecss">
+        <h3 class="add">结束拍卖</h3>
+        <br/>
+        <input type="text" name="商品id" id="endbidtimeid" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" placeholder="商品id:"  >
+       
+        <br/> <button class=" btn endbidtime">确认</button>
+    </div>
+
+    <div class="height_bidinfocss">
+        <h3 class="add">最高出价者信息:</h3>
+        <br/>
+        <input type="text" name="商品id" id="height_bidinfoid" placeholder="商品id:"  >
+        <br/>
+       <div>最高地址:<div id="height_bidinfoaddress"></div></div>
+       <br/>
+       <div>出价金额:<div id="height_bidinfodvalue"></div></div>
+       <br/>
+        <button class=" btn height_bidinfo">确认</button>
+    </div>
+     <div class="height_bidcss">
+        <h3 class="add">查询最高出价多少:</h3>
+        <input type="text" name="商品id" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" id="height_bidid" placeholder="商品id:"  >
+        <div>当前商品最高出价为:<div id="height_bidvalue"></div></div>
+        <button class=" btn height_bid ">确认</button>
+    </div>
+
+    <br/>
+    <div class="num_css">
+        <h3 class="add">拍卖品总数:</h3>
+        <div>拍卖品总数:<div id="ProducttotalNum"></div></div>
+        <button class=" btn Producttotal">确认</button>
+    </div>
+    <div class="bid_numcss">
+        <h3 class="add">拍卖品被出价次数:</h3>
+        <div>被出价次数:<div id="Proproduct_abductedNum"></div></div>
+        <button class=" btn product_abducted ">确认</button>
+    </div>
+  
+    <div class="owerbreak_promisesurecss">
+        <h3 class="add">拍卖品拥有者违约:</h3>
+        <br/>
+        对哪个商品违约:     <br/><input type="text" name="商品id" id="owerbreak_promisesureid" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" placeholder="商品id:" >
+        <br/> <button class=" btn owerbreak_promisesure ">确认</button>
+    </div>
+    <br/>
+    <div class="bidbreak_promisesurecss">
+        <h3 class="add">拍卖品出价者者违约:</h3><br/>
+        对哪个商品违约:<br/><input type="text" name="商品id" onkeyup="if(!/^\d+$/.test(this.value)) {alert('只能输入数字 !'); this.value=this.value.replace(/[^\d]+/g,'');}" id="bidbreak_promisesureid" placeholder="商品id:"  >
+        <br/> <button class=" btn bidbreak_promisesure ">确认</button>
+    </div>
+    <br/>
+    <br/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="web3.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
